@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# Allow C source and header files
+!*.c
+!*.h
+
+# Allow Makefile
+!Makefile
+
+# Allow README
+!README.md
+
+# Allow .gitignore itself
+!.gitignore
