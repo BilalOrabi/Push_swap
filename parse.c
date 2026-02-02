@@ -6,17 +6,17 @@
 /*   By: borabi <bilal.orabi@learner.42.tech>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 18:59:19 by borabi            #+#    #+#             */
-/*   Updated: 2026/01/09 18:59:19 by borabi           ###   ########.fr       */
+/*   Updated: 2026/01/15 14:39:27 by borabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoi_v2(char *str)
+long	ft_atol(char *str)
 {
 	long	result;
-	int	sign;
-	int	i;
+	int		sign;
+	int		i;
 
 	result = 0;
 	sign = 1;
@@ -37,12 +37,12 @@ long	ft_atoi_v2(char *str)
 	return (result * sign);
 }
 
-int is_valid_number(char *str)
+int	is_valid_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(!str || !str[0])
+	if (!str || !str[0])
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
@@ -57,7 +57,7 @@ int is_valid_number(char *str)
 	return (1);
 }
 
-int has_duplicate(t_stack *stack)
+int	has_duplicate(t_stack *stack)
 {
 	t_node	*i;
 	t_node	*j;
@@ -79,7 +79,7 @@ int has_duplicate(t_stack *stack)
 	return (0);
 }
 
-static void add_to_bottom(t_stack *stack, t_node *node)
+static void	add_to_bottom(t_stack *stack, t_node *node)
 {
 	if (!stack || !node)
 		return ;
@@ -99,28 +99,24 @@ static void add_to_bottom(t_stack *stack, t_node *node)
 
 int	parse_args(int argc, char **argv, t_data *data)
 {
-	int i;
-	long number;
-	t_node *node;
-	
-	i = 1;
-	while (i < argc)
+	int		i;
+	long	number;
+	t_node	*node;
+
+	i = 0;
+	while (++i < argc)
 	{
-		if (argv[i][0] == '-' && argv[i][1] == '-')
-		{
-			i++;
-			continue;
-		}
-		if(!is_valid_number(argv[i]))
+		if (argv[i][0] == '-' && argv[i][1] == '-' && ft_isalpha(argv[i][2]))
+			continue ;
+		if (!is_valid_number(argv[i]))
 			return (0);
-		number = ft_atoi_v2(argv[i]);
-		if (number > INT_MAX || i < INT_MIN)
+		number = ft_atol(argv[i]);
+		if (number > INT_MAX || number < INT_MIN)
 			return (0);
 		node = new_node((int)number);
 		if (!node)
 			return (0);
 		add_to_bottom(data->a, node);
-		i++;
 	}
 	if (has_duplicate(data->a))
 		return (0);

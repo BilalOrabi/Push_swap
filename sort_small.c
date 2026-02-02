@@ -6,7 +6,7 @@
 /*   By: borabi <bilal.orabi@learner.42.tech>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 19:35:18 by borabi            #+#    #+#             */
-/*   Updated: 2026/01/09 19:35:18 by borabi           ###   ########.fr       */
+/*   Updated: 2026/01/15 13:11:37 by borabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	sort_two(t_data *data)
 	if (data->a->top->index > data->a->top->next->index)
 		sa(data, 1);
 }
+
 void	sort_three(t_data *data)
 {
 	int	a;
@@ -26,27 +27,27 @@ void	sort_three(t_data *data)
 	a = data->a->top->index;
 	b = data->a->top->next->index;
 	c = data->a->bottom->index;
-	if(a > b && b < c && a < c)
+	if (a > b && b < c && a < c)
 		sa(data, 1);
-	else if(a > b && b > c)
+	else if (a > b && b > c)
 	{
 		sa(data, 1);
 		rra(data, 1);
 	}
-	else if(a > b && b < c && a > c)
+	else if (a > b && b < c && a > c)
 		ra(data, 1);
-	else if(a < b && b > c && a < c)
+	else if (a < b && b > c && a < c)
 	{
 		sa(data, 1);
 		ra(data, 1);
 	}
-	else if(a < b && b > c && a > c)
+	else if (a < b && b > c && a > c)
 		rra(data, 1);
 }
 
 void	sort_four(t_data *data)
 {
-	int min_pos;
+	int	min_pos;
 
 	min_pos = get_position(data->a, stack_min_index(data->a));
 	rotate_to_top(data, data->a, min_pos, 'a');
@@ -57,7 +58,7 @@ void	sort_four(t_data *data)
 
 void	sort_five(t_data *data)
 {
-	int min_pos;
+	int	min_pos;
 
 	min_pos = get_position(data->a, stack_min_index(data->a));
 	rotate_to_top(data, data->a, min_pos, 'a');

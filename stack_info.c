@@ -6,15 +6,15 @@
 /*   By: borabi <bilal.orabi@learner.42.tech>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 22:24:09 by borabi            #+#    #+#             */
-/*   Updated: 2026/01/05 22:24:09 by borabi           ###   ########.fr       */
+/*   Updated: 2026/01/15 13:16:15 by borabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int stack_is_sorted(t_stack *stack)
+int	stack_is_sorted(t_stack *stack)
 {
-	t_node *current;
+	t_node	*current;
 
 	if (!stack || stack->size < 2)
 		return (1);
@@ -28,16 +28,15 @@ int stack_is_sorted(t_stack *stack)
 	return (1);
 }
 
-int stack_min(t_stack *stack)
+int	stack_min(t_stack *stack)
 {
-	t_node *current;
-	int min;
+	t_node	*current;
+	int		min;
 
 	if (!stack || !stack->top)
 		return (0);
 	current = stack->top;
 	min = current->value;
-
 	while (current)
 	{
 		if (current->value < min)
@@ -47,16 +46,15 @@ int stack_min(t_stack *stack)
 	return (min);
 }
 
-int stack_max(t_stack *stack)
+int	stack_max(t_stack *stack)
 {
-	t_node *current;
-	int max;
+	t_node	*current;
+	int		max;
 
 	if (!stack || !stack->top)
 		return (0);
 	current = stack->top;
 	max = current->value;
-
 	while (current)
 	{
 		if (current->value > max)
@@ -66,16 +64,15 @@ int stack_max(t_stack *stack)
 	return (max);
 }
 
-int stack_min_index(t_stack *stack)
+int	stack_min_index(t_stack *stack)
 {
-	t_node *current;
-	int min;
+	t_node	*current;
+	int		min;
 
 	if (!stack || !stack->top)
 		return (0);
 	current = stack->top;
 	min = current->index;
-
 	while (current)
 	{
 		if (current->index < min)
@@ -85,16 +82,15 @@ int stack_min_index(t_stack *stack)
 	return (min);
 }
 
-int stack_max_index(t_stack *stack)
+int	stack_max_index(t_stack *stack)
 {
-	t_node *current;
-	int max;
+	t_node	*current;
+	int		max;
 
 	if (!stack || !stack->top)
 		return (0);
 	current = stack->top;
 	max = current->index;
-
 	while (current)
 	{
 		if (current->index > max)

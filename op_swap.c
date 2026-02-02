@@ -6,17 +6,18 @@
 /*   By: borabi <bilal.orabi@learner.42.tech>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 20:22:47 by borabi            #+#    #+#             */
-/*   Updated: 2026/01/04 20:22:47 by borabi           ###   ########.fr       */
+/*   Updated: 2026/01/15 12:55:53 by borabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void swap_stack(t_stack *stack)
+static void	swap_stack(t_stack *stack)
 {
-	int temp_value;
-	int temp_index;
-	if(!stack || stack->size < 2)
+	int	temp_value;
+	int	temp_index;
+
+	if (!stack || stack->size < 2)
 		return ;
 	temp_value = stack->top->value;
 	temp_index = stack->top->index;
@@ -26,29 +27,29 @@ static void swap_stack(t_stack *stack)
 	stack->top->next->index = temp_index;
 }
 
-void sa(t_data *data, int does_print)
+void	sa(t_data *data, int does_print)
 {
 	swap_stack(data->a);
-	if(does_print)
+	if (does_print)
 		write(1, "sa\n", 3);
 	data->bench.sa++;
 	data->bench.total++;
 }
 
-void sb(t_data *data, int does_print)
+void	sb(t_data *data, int does_print)
 {
 	swap_stack(data->b);
-	if(does_print)
+	if (does_print)
 		write(1, "sb\n", 3);
 	data->bench.sb++;
 	data->bench.total++;
 }
 
-void ss(t_data *data, int does_print)
+void	ss(t_data *data, int does_print)
 {
 	swap_stack(data->a);
 	swap_stack(data->b);
-	if(does_print)
+	if (does_print)
 		write(1, "ss\n", 3);
 	data->bench.ss++;
 	data->bench.total++;
